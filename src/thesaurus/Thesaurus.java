@@ -54,5 +54,24 @@ public class Thesaurus {
 		synonyms.put("angry", angry);
 
 	}
+	
+	/**
+	 * Print out the whole thesaurus (map);
+	 * 
+	 */
+	public void print() {
+		for (HashMap.Entry<String, HashSet<String>> entry : synonyms.entrySet()) {
+			String key = entry.getKey();
+			HashSet<String> value = entry.getValue();
+
+			String synonym = "";
+			for (String i : value) {
+				synonym = i + " " + synonym;
+			}
+
+			System.out.println(key + " - " + synonym);
+
+		}
+	}
 
 }

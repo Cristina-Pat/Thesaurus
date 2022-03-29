@@ -73,5 +73,24 @@ public class Thesaurus {
 
 		}
 	}
+	
+	/**
+	 * Add a new synonym to the thesaurus (map);
+	 * 
+	 * @param aWord A word which is added in the map as a key if it not already exist.
+	 * @param aSynonym A String synonym is added as a value to the map.
+	 * 
+	 */
+	public void addSynonym(String aWord, String aSynonym) {
+		if (synonyms.containsKey(aWord)) {
+			HashSet<String> word = synonyms.get(aWord);
+			word.add(aSynonym);
+		} else {
+			HashSet<String> newSet = new HashSet<String>();
+			newSet.add(aSynonym);
+			synonyms.put(aWord, newSet);
+		}
+	}
+	
 
 }

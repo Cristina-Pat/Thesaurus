@@ -92,5 +92,20 @@ public class Thesaurus {
 		}
 	}
 	
+	/**
+	 * Print new variations of a given sentence, where the given word is replaced by a different
+	 * synonyms.
+	 * 
+	 * @param aWord The word that needs to be replaced.
+	 * @param aSentence The sentence where the given word must be replaced with its synonyms.
+	 * 
+	 */
+	public void replaceWord(String aWord, String aSentence) {
+		HashSet<String> set = synonyms.get(aWord);
+		for (String i : set) {
+			String result = aSentence.replace(aWord, i);
+			System.out.println(result);
+		}
+	}
 
 }

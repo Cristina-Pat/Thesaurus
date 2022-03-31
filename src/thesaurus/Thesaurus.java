@@ -107,5 +107,35 @@ public class Thesaurus {
 			System.out.println(result);
 		}
 	}
+	/**
+	 * Cross-reference each synonym in the thesaurus.
+	 * 
+	 */
+
+	public void crossReference() {
+		// convert key set to array so that it does not change when we add new entries
+		// to the HashMap
+		Object[] mapKeys = synonyms.keySet().toArray();
+
+		for (Object keyObj : mapKeys) {
+			// convert the key object to String
+			String key = (String) keyObj;
+			
+			HashSet<String> set = synonyms.get(key);
+
+			for (String j : set) {
+
+				HashSet<String> newSet = new HashSet<String>();
+				for (String k : set) {
+					if (!j.equals(k)) {
+						newSet.add(k);
+					}
+				}
+				newSet.add(key);
+
+				synonyms.put(j, newSet);
+			}
+		}
+	}
 
 }
